@@ -1,0 +1,9 @@
+//memoria principal = equilibrio entre armazenamento e velocidade (Memoria RAM);
+//memoria secundaria = +armazenamento, -velocidade (Memoria ROM) -> SSD, HDD...;
+//arquivo = conjunto/coleção grande de dados(registros) -> não necessariamente serão tipos de dados simples, podem ser "structs" ou "objetos";
+//arquivo sequencial simples: Pode ser implementado como lista/vetor -> exemplos: fita cassete, fita vhs, fita dat...
+//								     -> não permite acesso direto, apenas sequencial;
+//arquivo sequencial ordenado: sequencia definida por uma chave primária -> podemos definir começo, meio e fim
+//								       -> conseguimos aplicar busca binária
+//								       -> permite acesso direto (em tipos de armazenamento que permitem acesso direto, como hdd, ssd, cd's...) 
+//								       -> falhamos a busca mais rapidamente, porém a busca será sequencial

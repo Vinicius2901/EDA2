@@ -1,0 +1,26 @@
+// Balance-Line: Técnica de inserção/exclusão de um registro
+//      Gravações realizadas em um arquivo temporário
+//      Operações efetivadas no arquivo original periodicamente
+//      Intercalação dos arquivos para efetivação
+
+// Arquivo sequencial indexado:
+//      Sem preocupação da disposição dos registros
+//      
+
+// Arquivo indexado:
+//      Acesso exclusivo por índice
+//      Indice construido por uma estrutura chamada Árvore B
+//      Acessos aleatorios a partir dos indices
+//      Inserção mais eficiente
+//      Acesso sequencial ineficiente
+//      Manutenção de um ou mais índices
+//      Inserções ou alterações envolvendo atributos associados aos índices
+
+// Arquivo direto:
+//      Não requer pesquisa, vai direto a um registro
+//      Hashing - Aplicação de funções matemáticas para ir direto a um endreço
+//      
+
+// Arquivo invertido:
+//      Utilizado principalmente para algoritmos de pesquisa aproximada
+//      Qualquer mudança em um dado, deve-se reconstruir todos os dados
