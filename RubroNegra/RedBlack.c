@@ -16,13 +16,54 @@ typedef struct no
     Cor cor;
 } No;
 
-typedef struct avl
+typedef struct rubroNegra
 {
     No *raiz;
     No *nulo;
-} Avl;
+} Arvore;
 
-void balancear(Avl *arvore, No *no)
+Arvore* criar() {
+    Arvore *arvore = malloc(sizeof(Arvore));
+    arvore->raiz = NULL;
+  
+    return arvore;
+}
+
+No* adicionarNo(Arvore *arvore, No* no, int valor) {
+    if (valor > no->valor) {
+        if (no->direita == arvore->nulo) {
+            printf("Adicionando %d\n",valor);
+            No* novo = criarNo(arvore, no, valor);
+            no->direita = novo;
+				
+            return novo;
+        } else {
+            return adicionarNo(arvore, no->direita, valor);
+        }
+    } else {
+        if (no->esquerda == arvore->nulo) {
+            printf("Adicionando %d\n",valor);
+            No* novo = criarNo(arvore, no, valor);
+            no->esquerda = novo;
+			
+            return novo;
+        } else {
+            return adicionarNo(arvore, no->esquerda, valor);
+        }
+    }
+}
+
+No* criarNo(Arvore *arvore, No* pai, int valor) {
+    No* no = malloc(sizeof(No));
+    no->valor = valor;
+    no->pai = pai;
+    no->esquerda = arvore->nulo;
+    no->direita = arvore->nulo;
+    no->cor = Vermelho;
+    return no;
+}
+
+void balancear(Arvore *arvore, No *no)
 {
     while (no->pai->cor == Vermelho)
     { // Garante que todos os níveis foram balanceados
@@ -59,7 +100,7 @@ void balancear(Avl *arvore, No *no)
     arvore->raiz->cor = Preto; // Resolve caso 1
 }
 
-void rotacionarEsquerda(Avl *arvore, No *no)
+void rotacionarEsquerda(Arvore *arvore, No *no)
 {
     No *direita = no->direita;
     no->direita = direita->esquerda;
@@ -76,7 +117,7 @@ void rotacionarEsquerda(Avl *arvore, No *no)
     no->pai = direita;
 }
 
-void rotacionarDireita(Avl *arvore, No *no)
+void rotacionarDireita(Arvore *arvore, No *no)
 {
     No *esquerda = no->esquerda;
     no->esquerda = esquerda->direita;
@@ -91,4 +132,13 @@ void rotacionarDireita(Avl *arvore, No *no)
         no->pai->direita = esquerda;        // Corrige relação pai-filho do novo pai (direita)
     esquerda->direita = no;                 // Corrige relação pai-filho entre o nó pivô e o nó à esquerda
     no->pai = esquerda;
+}
+
+void adicionar( Arvore *arvore, No *no ) {
+    if( arvore->raiz == NULL ) {
+        arvore->raiz = no;
+        no->cor = Preto;
+        return;
+    }
+
 }
