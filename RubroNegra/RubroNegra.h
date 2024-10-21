@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#ifndef RUBRO_NEGRA
-#define RUBRO_NEGRA
+#ifndef RUBRO_NEGRA_H
+#define RUBRO_NEGRA_H
 typedef enum coloracao
 {
     Preto,
